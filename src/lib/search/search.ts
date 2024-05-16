@@ -20,7 +20,7 @@ export async function search(input: string): Promise<SearchResult[]> {
 				console.error('Train not found');
 				return [];
 			}
-			return [{ type: SearchType.TRAIN, train, url: `/train/${train.trainNumber}` }];
+			return [{ type: SearchType.TRAIN, train, url: `/train/latest/${train.trainNumber}` }];
 
 		case SearchType.STATION:
 			const stations = await searchForStation(input);
