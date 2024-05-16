@@ -1,7 +1,6 @@
 
 // This file has the goal of figuring out what the type of information is that we are searching for.
 
-import stations from '$lib/stations';
 import traintypes from '$lib/traintypes';
 
 export enum SearchType {
@@ -34,14 +33,6 @@ const checkType: Record<string, (input: string) => boolean> = {
 	"train": (input: string) => {
 		return /^\d+$/.test(input);
 	},
-	"station": (input: string) => {
-		return Object.values(stations).some((station) => {
-			return (
-				station.stationName.toLowerCase() === input.toLowerCase() ||
-				station.stationShortCode.toLowerCase() === input.toLowerCase()
-			);
-		});
-	},
 	"traintype": (input: string) => {
 		return traintypes.some((traintype) => {
 			return traintype.name.toLowerCase() === input.toLowerCase();
@@ -52,5 +43,8 @@ const checkType: Record<string, (input: string) => boolean> = {
 	},
 	"invalid": () => {
 		return false;
-	}
+	},
+	"station": () => {
+		return true; // always try to search for a station
+	},
 };

@@ -5,8 +5,9 @@
 	let { from, to }: { from: string; to: string } = $props();
 </script>
 
-<div class="flex justify-between">
-	<div><StationChip id={from} /></div>
-	<ChevronRight />
-	<div><StationChip id={to} /></div>
+<div class="flex justify-between z-10">
+	<StationChip id={from} />
+	<ChevronRight class="text-muted-foreground" />
+	<StationChip id={to} />
 </div>
+
