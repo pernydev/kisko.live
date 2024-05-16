@@ -138,7 +138,7 @@
 							>
 								<Table.Cell>
 									{#if currentSection === row.stationShortCode}
-										<ChevronRight size="1.5em" />
+										<ChevronRight size="1.5em" aria-label="Nykyinen raideosuus" />
 									{/if}
 								</Table.Cell>
 								<Table.Cell><StationChip id={row.stationShortCode} /></Table.Cell>

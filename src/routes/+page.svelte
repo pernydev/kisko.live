@@ -20,38 +20,6 @@
 
 <article>
 	{#if $nerdmode}
-		<section id="interesting">
-			<h2 class="mb-6 text-center text-2xl font-bold">Mielenkiintoiset junat</h2>
-			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-				<Card.Root>
-					<Card.Header>
-						<Card.Title class="mb-2 text-center">IC 59</Card.Title>
-						<Card.Description><FromToStations from="HKI" to="TKU" /></Card.Description>
-					</Card.Header>
-					<Card.Content>
-						<p class="text-center">Epätavallinen kapasiteetti, Sr1 veturi</p>
-					</Card.Content>
-				</Card.Root>
-				<Card.Root>
-					<Card.Header>
-						<Card.Title class="mb-2 text-center">IC 59</Card.Title>
-						<Card.Description><FromToStations from="HKI" to="TKU" /></Card.Description>
-					</Card.Header>
-					<Card.Content>
-						<p class="text-center">Epätavallinen kapasiteetti, Sr1 veturi</p>
-					</Card.Content>
-				</Card.Root>
-				<Card.Root>
-					<Card.Header>
-						<Card.Title class="mb-2 text-center">IC 59</Card.Title>
-						<Card.Description><FromToStations from="HKI" to="TKU" /></Card.Description>
-					</Card.Header>
-					<Card.Content>
-						<p class="text-center">Epätavallinen kapasiteetti, Sr1 veturi</p>
-					</Card.Content>
-				</Card.Root>
-			</div>
-		</section>
 	{/if}
 </article>
 
