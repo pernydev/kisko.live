@@ -9,23 +9,6 @@ interface Station {
     latitude: number;
 }
 
-/*
- trainNumber: 1-99999 Info Junan numero. Esim junan “IC 59” junanumero on 59
-Required departureDate: date Info Junan ensimmäisen lähdön päivämäärä Suomen ajassa
-Required operatorUICCode: 1-9999 Info Junan operoiman operaattorin UIC-koodi
-Required operatorShortCode: vr, vr-track, destia, … Info Lista operaattoreista löytyy täältä.
-Required trainType: IC, P, S, …
-Required trainCategory: lähiliikenne, kaukoliikenne, tavaraliikenne, …
-Optional commuterLineID: Z, K, N….
-Required runningCurrently: true/false Info Onko juna tällä hetkellä kulussa
-Required cancelled: true/false Info Totta, jos junan peruminen on tehty 10 vuorokauden sisällä. Yli 10 vuorokautta sitten peruttuja junia ei palauteta rajapinnassa laisinkaan.
-Required version: positive integer Info Versionumero, jossa juna on viimeksi muuttunut
-Required timetableType: REGULAR tai ADHOC. Info Kertoo onko junan aikataulu haettu säännöllisenä (REGULAR) vai kiireellisenä yksittäistä päivää koskevana (ADHOC).
-Required timetableAcceptanceDate: datetime. Info Ajanhetki jolloin viranomainen on hyväksynyt junan aikataulun.
-Optional deleted: true,false Info Kertoo onko juna poistettu eli peruttu yli kymmenen päivää ennen lähtöä.
-Required timeTableRows Info Kuvaa saapumisia ja lähtöjä liikennepaikoilta. Järjestetty reitin mukaiseen järjestykseen.
-*/
-
 interface Train {
     trainNumber: number;
     departureDate: string;
@@ -106,4 +89,31 @@ interface Cause {
     detailedCategoryCode: number;
     thirdCategoryCodeId: number;
     thirdCategoryCode: number;
+}
+
+interface TrainLocation {
+    trainNumber: number;
+    departureDate: string;
+    timestamp: string;
+    location: {
+        type: string;
+        coordinates: [number, number];
+    };
+    speed: number;
+    accuracy: number;
+}
+
+interface TrainWayEvent {
+    id: number;
+    version: number;
+    trainNumber: number;
+    departureDate: string;
+    timestamp: string;
+    trackSection: string;
+    nextTrackSection: string;
+    previousTrackSection: string;
+    station: string;
+    nextStation: string;
+    previousStation: string;
+    type: string;
 }

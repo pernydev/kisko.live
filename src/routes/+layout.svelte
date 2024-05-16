@@ -19,7 +19,7 @@
 
 	function changeNerdmode() {
 		$nerdmode = !$nerdmode;
-		if (new URL($page.url).pathname.includes('/station/') || new URL($page.url).pathname.includes('/train/')) {
+		if (new URL($page.url).pathname.includes('/station/')) {
 			window.location.reload();
 		}
 	}
