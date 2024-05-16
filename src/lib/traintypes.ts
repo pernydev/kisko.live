@@ -1,0 +1,33 @@
+const traintypes = [
+	{ name: 'PAR', trainCategory: { name: 'Shunting' } },
+	{ name: 'HL', trainCategory: { name: 'Commuter' } },
+	{ name: 'VET', trainCategory: { name: 'Locomotive' } },
+	{ name: 'VEV', trainCategory: { name: 'Shunting' } },
+	{ name: 'H', trainCategory: { name: 'Long-distance' } },
+	{ name: 'PVS', trainCategory: { name: 'Long-distance' } },
+	{ name: 'HV', trainCategory: { name: 'Commuter' } },
+	{ name: 'P', trainCategory: { name: 'Long-distance' } },
+	{ name: 'HDM', trainCategory: { name: 'Long-distance' } },
+	{ name: 'PVV', trainCategory: { name: 'Long-distance' } },
+	{ name: 'VLI', trainCategory: { name: 'Shunting' } },
+	{ name: 'S', trainCategory: { name: 'Long-distance' } },
+	{ name: 'HLV', trainCategory: { name: 'Commuter' } },
+	{ name: 'T', trainCategory: { name: 'Cargo' } },
+	{ name: 'V', trainCategory: { name: 'Long-distance' } },
+	{ name: 'W', trainCategory: { name: 'Shunting' } },
+	{ name: 'IC2', trainCategory: { name: 'Long-distance' } },
+	{ name: 'IC', trainCategory: { name: 'Long-distance' } },
+	{ name: 'HSM', trainCategory: { name: 'Long-distance' } },
+	{ name: 'AE', trainCategory: { name: 'Long-distance' } },
+	{ name: 'PYO', trainCategory: { name: 'Long-distance' } },
+	{ name: 'MV', trainCategory: { name: 'Long-distance' } },
+	{ name: 'MUS', trainCategory: { name: 'Long-distance' } },
+	{ name: 'TYO', trainCategory: { name: 'On-track machines' } },
+	{ name: 'MUV', trainCategory: { name: 'Shunting' } },
+	{ name: 'SAA', trainCategory: { name: 'Shunting' } },
+	{ name: 'LIV', trainCategory: { name: 'Test drive' } },
+	{ name: 'RJ', trainCategory: { name: 'Cargo' } },
+	{ name: 'PAI', trainCategory: { name: 'Shunting' } }
+];
+
+export default traintypes;
