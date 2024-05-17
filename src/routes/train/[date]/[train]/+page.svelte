@@ -5,6 +5,7 @@
 	import Timetable from '$lib/components/Timetable.svelte';
 	import * as Tabs from '$lib/components/ui/tabs';
 	import Composition from '$lib/components/Composition.svelte';
+	import PassangerInformation from '$lib/components/PassangerInformation.svelte';
 
 	let { data } = $props();
 	let client: mqtt.MqttClient;
@@ -50,6 +51,7 @@
 </header>
 
 <article>
+	<PassangerInformation train={data.train.trainNumber.toString()} />
 	<Card.Root>
 		<Card.Content class="pt-6">
 			<Tabs.Root value="timetable">

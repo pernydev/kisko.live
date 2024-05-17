@@ -161,388 +161,6 @@ interface Wagon {
     luggage?: boolean;
 }
 
-/*
-			{
-				"id": "cc028cf3-f627-4278-8ee5-74c735fd57f4",
-				"departureTime": "2024-06-17T05:03:00.000+03:00",
-				"departureStation": "HKI",
-				"arrivalStation": "JY",
-				"arrivalTime": "2024-06-17T08:43:00.000+03:00",
-				"legs": [
-					{
-						"legKey": "35-HKI-TPE-2024-06-17",
-						"trainNumber": "35",
-						"trainType": "S",
-						"trainAttributes": [
-							"SEAT-2ND_CLASS",
-							"ILE",
-							"LEM",
-							"LVA",
-							"VAS",
-							"WHEELCHAIR_ACCESSIBLE",
-							"RESTAURANT",
-							"VAE",
-							"PTP",
-							"SEAT-1ST_CLASS",
-							"SBN"
-						],
-						"type": "LONG_DISTANCE",
-						"commercialLineIdentifier": "",
-						"departureStation": "HKI",
-						"departureTime": "2024-06-17T05:03:00.000+03:00",
-						"arrivalStation": "TPE",
-						"arrivalTime": "2024-06-17T06:53:00.000+03:00",
-						"trainFillPercentage": 11,
-						"productAttributes": [
-							{
-								"name": "ECO_CLASS_SEAT",
-								"attribute": "VAE",
-								"availability": 16,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "SEAT_IN_NEGOTIATION_CABIN",
-								"attribute": "SBN",
-								"availability": 6,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "ADJACENT_SEAT_ECO",
-								"attribute": "LEM",
-								"availability": 18,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "ADJACENT_SEAT_ECO",
-								"attribute": "LVA",
-								"availability": 22,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "ADJACENT_SEAT_EXTRA",
-								"attribute": "VAS",
-								"availability": 16,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "SINGLE_EXTRA_CLASS_SEAT",
-								"attribute": "VAS",
-								"availability": 8,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "ADJACENT_SEAT_ECO",
-								"attribute": "VAE",
-								"availability": 16,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "ECO_CLASS_SEAT",
-								"attribute": "LVA",
-								"availability": 22,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "ADJACENT_SEAT_EXTRA",
-								"attribute": null,
-								"availability": 32,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "ECO_CLASS_SEAT",
-								"attribute": "LEM",
-								"availability": 18,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "ADJACENT_SEAT_ECO",
-								"attribute": null,
-								"availability": 261,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "ECO_CLASS_SEAT",
-								"attribute": "VAS",
-								"availability": 102,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "SINGLE_EXTRA_CLASS_SEAT",
-								"attribute": "EKY",
-								"availability": 28,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "ADJACENT_SEAT_ECO",
-								"attribute": "ILE",
-								"availability": 1,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "ECO_CLASS_SEAT",
-								"attribute": "PTP",
-								"availability": 4,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "EXTRA_CLASS_SEAT",
-								"attribute": null,
-								"availability": 32,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "ECO_CLASS_SEAT",
-								"attribute": "ILE",
-								"availability": 1,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "ADJACENT_SEAT_ECO",
-								"attribute": "VAS",
-								"availability": 102,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "ECO_CLASS_SEAT",
-								"attribute": null,
-								"availability": 261,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "ADJACENT_SEAT_ECO",
-								"attribute": "PTP",
-								"availability": 4,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "EXTRA_CLASS_SEAT",
-								"attribute": "VAS",
-								"availability": 16,
-								"__typename": "ProductAttribute"
-							}
-						],
-						"__typename": "JourneyOptionLeg"
-					},
-					{
-						"legKey": "81-TPE-JY-2024-06-17",
-						"trainNumber": "81",
-						"trainType": "IC",
-						"trainAttributes": [
-							"SEAT-2ND_CLASS",
-							"ILE",
-							"VAS",
-							"WHEELCHAIR_ACCESSIBLE",
-							"TYO",
-							"PTP",
-							"PPP",
-							"LEI",
-							"LEM",
-							"LVA",
-							"VAE",
-							"PER",
-							"SEAT-1ST_CLASS"
-						],
-						"type": "LONG_DISTANCE",
-						"commercialLineIdentifier": "",
-						"departureStation": "TPE",
-						"departureTime": "2024-06-17T07:07:00.000+03:00",
-						"arrivalStation": "JY",
-						"arrivalTime": "2024-06-17T08:43:00.000+03:00",
-						"trainFillPercentage": 3,
-						"productAttributes": [
-							{
-								"name": "ECO_CLASS_SEAT",
-								"attribute": "VAE",
-								"availability": 8,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "ADJACENT_SEAT_ECO",
-								"attribute": "LEI",
-								"availability": 20,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "ADJACENT_SEAT_ECO",
-								"attribute": "LEM",
-								"availability": 16,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "ADJACENT_SEAT_ECO",
-								"attribute": "LVA",
-								"availability": 16,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "ADJACENT_SEAT_EXTRA",
-								"attribute": "VAS",
-								"availability": 4,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "SINGLE_EXTRA_CLASS_SEAT",
-								"attribute": "VAS",
-								"availability": 2,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "ECO_CLASS_SEAT",
-								"attribute": "LEI",
-								"availability": 20,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "ADJACENT_SEAT_ECO",
-								"attribute": "VAE",
-								"availability": 8,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "ECO_CLASS_SEAT",
-								"attribute": "LVA",
-								"availability": 16,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "ADJACENT_SEAT_EXTRA",
-								"attribute": null,
-								"availability": 20,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "ECO_CLASS_SEAT",
-								"attribute": "LEM",
-								"availability": 16,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "ADJACENT_SEAT_ECO",
-								"attribute": null,
-								"availability": 110,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "ADJACENT_SEAT_ECO",
-								"attribute": "ILE",
-								"availability": 2,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "SINGLE_EXTRA_CLASS_SEAT",
-								"attribute": "EKY",
-								"availability": 12,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "SEAT_IN_WORKING_CABIN",
-								"attribute": "TYO",
-								"availability": 10,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "SEAT_IN_FAMILY_CABIN",
-								"attribute": "PER",
-								"availability": 4,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "ECO_CLASS_SEAT",
-								"attribute": "VAS",
-								"availability": 24,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "ECO_CLASS_SEAT",
-								"attribute": "PTP",
-								"availability": 2,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "EXTRA_CLASS_SEAT",
-								"attribute": null,
-								"availability": 20,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "BICYCLE_ALLOTMENT",
-								"attribute": null,
-								"availability": 4,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "ECO_CLASS_SEAT",
-								"attribute": "ILE",
-								"availability": 2,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "ADJACENT_SEAT_ECO",
-								"attribute": "VAS",
-								"availability": 24,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "ECO_CLASS_SEAT",
-								"attribute": null,
-								"availability": 110,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "ADJACENT_SEAT_ECO",
-								"attribute": "PTP",
-								"availability": 2,
-								"__typename": "ProductAttribute"
-							},
-							{
-								"name": "EXTRA_CLASS_SEAT",
-								"attribute": "VAS",
-								"availability": 4,
-								"__typename": "ProductAttribute"
-							}
-						],
-						"__typename": "JourneyOptionLeg"
-					}
-				],
-				"totalPrice": 1360,
-				"discount": null,
-				"error": null,
-				"passengers": [
-					{
-						"type": "ADULT",
-						"offers": [
-							{
-								"legId": "35-S-HKI-TPE-2024-06-17",
-								"product": "ECO_CLASS_SEAT",
-								"price": 820,
-								"discountCategory": "P50",
-								"__typename": "PassengerOffer"
-							},
-							{
-								"legId": "81-IC-TPE-JY-2024-06-17",
-								"product": "ECO_CLASS_SEAT",
-								"price": 540,
-								"discountCategory": "P40",
-								"__typename": "PassengerOffer"
-							}
-						],
-						"__typename": "JourneyOptionPassenger"
-					}
-				],
-				"availability": {
-					"seatAvailability_v2": "ECO_CLASS_SEAT",
-					"accessibleSeatAvailability": "AVAILABLE",
-					"petSeatAvailability": "AVAILABLE",
-					"cabinAvailability": "None",
-					"petCabinAvailability": "None",
-					"accessibleCabinAvailability": "None",
-					"__typename": "OptionAvailability"
-				},
-				"highestLegTrainFill": 11,
-				"__typename": "JourneyOption"
-			}
-*/
-
 interface VRJourneyOption {
     id: string;
     departureTime: string;
@@ -603,4 +221,44 @@ interface OptionAvailability {
     cabinAvailability: string;
     petCabinAvailability: string;
     accessibleCabinAvailability: string;
+}
+
+/*
+Required id: string Info Tiedotteen yksilöivä merkkijonotunniste
+Required version: positive integer Info Tiedotteen uusin versionumero
+Required creationDateTime: date Info Tiedotteen uusimman version luontipäivämäärä
+Required startValidity: date Info Tiedotteen voimassaolon alkupäivämäärä
+Required endValidity: date Info Tiedotteen voimassaolon loppupäivämäärä
+Required stations: string[] Info Lista tiedotteeseen liittyvien asemien lyhenteistä
+Optional trainNumber: positive integer Info Tiedotteeseen liittyvän junan numero
+Optional trainDepartureDate: date Info Tiedotteeseen liittyvän junan lähtöpäivämäärä
+Optional audio: object Info Tiedotteen audioversion tekstisisällöt ja esityssäännöt
+    Optional text: object Info Tiedotteen tekstisisällöt
+        Optional fi: string Info Tiedotteen tekstisisältö suomeksi
+        Optional sv: string Info Tiedotteen tekstisisältö ruotsiksi
+        Optional en: string Info Tiedotteen tekstisisältö englanniksi
+*/
+
+interface PassangerInformation {
+    id: string;
+    version: number;
+    creationDateTime: string;
+    startValidity: string;
+    endValidity: string;
+    stations: string[];
+    trainNumber?: number;
+    trainDepartureDate?: string;
+    audio?: {
+        text: {
+            fi?: string;
+            sv?: string;
+            en?: string;
+        };
+    };
+}
+
+interface CauseDetails {
+    code: string;
+    name: string;
+    validFrom: string;
 }

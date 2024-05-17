@@ -46,7 +46,7 @@ const checkType: Record<string, (input: string) => boolean> = {
 		return false;
 	},
 	"route": (input: string) => {
-		return /^[a-zA-Z]{2,}-[a-zA-Z]{2,}$/.test(input);
+		return input.includes("-");
 	},
 	"station": () => {
 		return true; // always try to search for a station
