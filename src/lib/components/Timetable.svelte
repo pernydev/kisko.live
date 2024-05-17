@@ -149,32 +149,32 @@
 						<Table.Cell>{row.trainStopping ? 'Kyllä' : 'Ei'}</Table.Cell>
 					{/if}
 				</Table.Row>
+				{#each row.causes as cause}
+					<Table.Row>
+						<Table.Cell></Table.Cell>
+						<Table.Cell colspan={5} class="flex items-center gap-4">
+							{#if $nerdmode}
+								<Badge variant="secondary">
+									{#if cause.thirdCategoryCodeId}
+										{cause.thirdCategoryCode}
+									{:else if cause.detailedCategoryCodeId}
+										{cause.detailedCategoryCode}
+									{:else}
+										{cause.categoryCode}
+									{/if}
+								</Badge>
+							{/if}
+							{#if cause.thirdCategoryCodeId}
+								{reasons[cause.thirdCategoryCodeId]?.name}
+							{:else if cause.detailedCategoryCodeId}
+								{reasons[cause.detailedCategoryCodeId]?.name}
+							{:else}
+								{reasons[cause.categoryCode]?.name}
+							{/if}
+						</Table.Cell>
+					</Table.Row>
+				{/each}
 			{/if}
-			{#each row.causes as cause}
-				<Table.Row>
-					<Table.Cell></Table.Cell>
-					<Table.Cell colspan={5} class="flex items-center gap-4">
-						{#if $nerdmode}
-							<Badge variant="secondary">
-								{#if cause.thirdCategoryCodeId}
-									{cause.thirdCategoryCode}
-								{:else if cause.detailedCategoryCodeId}
-									{cause.detailedCategoryCode}
-								{:else}
-									{cause.categoryCode}
-								{/if}
-							</Badge>
-						{/if}
-						{#if cause.thirdCategoryCodeId}
-							{reasons[cause.thirdCategoryCodeId]?.name}
-						{:else if cause.detailedCategoryCodeId}
-							{reasons[cause.detailedCategoryCodeId]?.name}
-						{:else}
-							{reasons[cause.categoryCode]?.name}
-						{/if}
-					</Table.Cell>
-				</Table.Row>
-			{/each}
 		{/each}
 	</Table.Body>
 </Table.Root>
