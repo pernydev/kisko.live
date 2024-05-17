@@ -1,6 +1,10 @@
 import type { PageServerLoad } from './$types';
 
 export const load = (async ({ params }) => {
+    if (params.date === 'latest') {
+        const today = new Date();
+        params.date = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+    }
     const resp = await fetch(`https://rata.digitraffic.fi/api/v1/trains/${params.date}/${params.train}`);
     const data = await resp.json();
 
