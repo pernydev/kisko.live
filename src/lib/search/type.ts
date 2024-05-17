@@ -8,6 +8,7 @@ export enum SearchType {
 	STATION = 'station',
 	TRAINTYPE = 'traintype',
 	WAGON = 'wagon',
+	ROUTE = 'route',
 	INVALID = 'invalid'
 }
 
@@ -43,6 +44,9 @@ const checkType: Record<string, (input: string) => boolean> = {
 	},
 	"invalid": () => {
 		return false;
+	},
+	"route": (input: string) => {
+		return /^[a-zA-Z]{2,}-[a-zA-Z]{2,}$/.test(input);
 	},
 	"station": () => {
 		return true; // always try to search for a station

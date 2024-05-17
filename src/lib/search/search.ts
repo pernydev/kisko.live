@@ -1,4 +1,5 @@
 /* eslint-disable no-case-declarations */
+import { searchForRoute } from './route';
 import { searchForStation } from './station';
 import { searchForTrain } from './train';
 import { getType, SearchType } from './type';
@@ -8,6 +9,7 @@ export type SearchResult = {
 	type: SearchType;
 	train?: Train;
 	station?: Station;
+	route?: VRJourneyOption;
 };
 
 export async function search(input: string): Promise<SearchResult[]> {
@@ -29,6 +31,14 @@ export async function search(input: string): Promise<SearchResult[]> {
 				return [];
 			}
 			return stations.map((station) => ({ type: SearchType.STATION, station, url: `/station/${station.stationShortCode}` }));
+			
+		case SearchType.ROUTE:
+			const routes = await searchForRoute(input);
+			if (routes.length === 0) {
+				console.error('Routes not found');
+				return [];
+			}
+			return routes.map((route) => ({ type: SearchType.ROUTE, route, url: `/` }));
 
 		default:
 			return [];
