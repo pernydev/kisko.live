@@ -70,10 +70,12 @@
 	{#each compositions?.journeySections ?? [] as section}
 		<section>
 			<h1 class="flex justify-between">
-				<FromToStations
-					from={section.beginTimeTableRow.stationShortCode}
-					to={section.endTimeTableRow.stationShortCode}
-				/>
+				{#if (compositions?.journeySections?.length || 0) > 1}
+					<FromToStations
+						from={section.beginTimeTableRow.stationShortCode}
+						to={section.endTimeTableRow.stationShortCode}
+					/>
+				{/if}
 				{#if $nerdmode}
 					<span>
 						{makeCompositionString(section)}

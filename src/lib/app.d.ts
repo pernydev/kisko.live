@@ -161,6 +161,37 @@ interface Wagon {
     luggage?: boolean;
 }
 
+
+/*
+Required version: positive integer Info Versionumero, jossa kulkutievaraus on viimeksi muuttunut
+Required messageTime: datetime Info Aikaleima jolloin kulkutievaraus on luettu
+Required trainNumber: string Info Junan numero. Esim junan “IC 59” junanumero on 59
+Optional departureDate: date Info Junan ensimmäisen lähdön päivämäärä Suomen ajassa. Voi olla tyhjä tapauksissa, jossa junan aikataulua ei tunneta.
+Required routeType: character Info Varauksen tyyppi. T=junakulkutie, S=vaihtokulkutie ja C=kulkutien purkaminen
+Required clientSystem: string Info Kulkutievarauksen luoneen kauko-ohjausjärjestelmän nimi
+Required routesections Info Lista raideosuuksista/vaihteista/elementeistä, jotka on varattu kulkutieksi
+    Required sectionId: string Info Varattavan osuuden tunnus
+    Required stationCode: string Info Liikennepaikka, jossa varaus sijaitsee
+    Optional commercialTrackId: string Info Raiteen kaupallinen tunnus
+*/
+
+interface TrainRoute {
+    version: number;
+    messageTime: string;
+    trainNumber: number;
+    departureDate: string;
+    routeType: string;
+    time
+    clientSystem: string;
+    routesections: RouteSection[];
+}
+
+interface RouteSection {
+    sectionId: string;
+    stationCode: string;
+    commercialTrackId: string;
+}
+
 interface VRJourneyOption {
     id: string;
     departureTime: string;
@@ -221,44 +252,4 @@ interface OptionAvailability {
     cabinAvailability: string;
     petCabinAvailability: string;
     accessibleCabinAvailability: string;
-}
-
-/*
-Required id: string Info Tiedotteen yksilöivä merkkijonotunniste
-Required version: positive integer Info Tiedotteen uusin versionumero
-Required creationDateTime: date Info Tiedotteen uusimman version luontipäivämäärä
-Required startValidity: date Info Tiedotteen voimassaolon alkupäivämäärä
-Required endValidity: date Info Tiedotteen voimassaolon loppupäivämäärä
-Required stations: string[] Info Lista tiedotteeseen liittyvien asemien lyhenteistä
-Optional trainNumber: positive integer Info Tiedotteeseen liittyvän junan numero
-Optional trainDepartureDate: date Info Tiedotteeseen liittyvän junan lähtöpäivämäärä
-Optional audio: object Info Tiedotteen audioversion tekstisisällöt ja esityssäännöt
-    Optional text: object Info Tiedotteen tekstisisällöt
-        Optional fi: string Info Tiedotteen tekstisisältö suomeksi
-        Optional sv: string Info Tiedotteen tekstisisältö ruotsiksi
-        Optional en: string Info Tiedotteen tekstisisältö englanniksi
-*/
-
-interface PassangerInformation {
-    id: string;
-    version: number;
-    creationDateTime: string;
-    startValidity: string;
-    endValidity: string;
-    stations: string[];
-    trainNumber?: number;
-    trainDepartureDate?: string;
-    audio?: {
-        text: {
-            fi?: string;
-            sv?: string;
-            en?: string;
-        };
-    };
-}
-
-interface CauseDetails {
-    code: string;
-    name: string;
-    validFrom: string;
 }

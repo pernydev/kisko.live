@@ -11,7 +11,7 @@
 	type Props = {
 		data: {
 			train: Train;
-			location: TrainLocation;
+			location: TrainLocation[];
 			tracking: TrainWayEvent[];
 		};
 	};

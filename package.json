@@ -35,9 +35,12 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@types/d3": "^7.4.3",
+		"@unovis/svelte": "^1.4.1",
 		"bits-ui": "^0.21.7",
 		"clsx": "^2.1.1",
 		"cmdk-sv": "^0.0.17",
+		"d3": "^7.9.0",
 		"lucide-svelte": "^0.378.0",
 		"minisearch": "^6.3.0",
 		"mqtt": "^5.6.0",

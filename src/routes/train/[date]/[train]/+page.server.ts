@@ -17,7 +17,7 @@ export const load = (async ({ params }) => {
 
     return {
         train: data[0] as Train,
-        location: data2[0] as TrainLocation,
+        location: data2 as TrainLocation[],
         tracking: data3 as TrainWayEvent[]
     };
 }) satisfies PageServerLoad;
