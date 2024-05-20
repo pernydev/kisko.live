@@ -13,6 +13,8 @@ export type SearchResult = {
 };
 
 export async function search(input: string): Promise<SearchResult[]> {
+	if (typeof window === 'undefined') return [];
+
 	const type = getType(input);
 	console.log(type);
 	switch (type) {

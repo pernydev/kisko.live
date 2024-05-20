@@ -1,5 +1,6 @@
 <script lang="ts">
 	import * as Card from '$lib/components/ui/card';
+	import * as Tooltip from '$lib/components/ui/tooltip';
 	import mqtt from 'mqtt';
 	import { onMount, onDestroy } from 'svelte';
 	import Timetable from '$lib/components/Timetable.svelte';
@@ -8,9 +9,12 @@
 	import PassangerInformation from '$lib/components/PassangerInformation.svelte';
 	import WayMessages from '$lib/components/WayMessages.svelte';
 	import Routesets from '$lib/components/Routesets.svelte';
-	import { nerdmode } from '$lib';
+	import { formatStrDate, nerdmode } from '$lib';
 	import Speed from '$lib/components/Speed.svelte';
 	import Button from '$lib/components/ui/button/button.svelte';
+	import { ChevronLeft, ChevronRight, Split } from 'lucide-svelte';
+	import { goto } from '$app/navigation';
+	import { page } from '$app/stores';
 
 	let { data } = $props();
 	let routesets: TrainRoute[] = $state([]);
@@ -45,19 +49,38 @@
 		);
 
 		routesets = await routesetsRequest.json();
+
+		const locationRequest = await fetch(
+			`https://rata.digitraffic.fi/api/v1/train-locations/${data.train.departureDate}/${data.train.trainNumber}`
+		);
+
+		data.location = await locationRequest.json();
+
+		const traintrackingRequest = await fetch(
+			`https://rata.digitraffic.fi/api/v1/train-tracking/${data.train.departureDate}/${data.train.trainNumber}`
+		);
+
+		data.tracking = await traintrackingRequest.json();
 	});
 
 	onDestroy(() => {
 		if (!client) return;
 		client.end();
 	});
+
+	function day(next: boolean) {
+		const date = new Date($page.params.date);
+		date.setDate(date.getDate() + (next ? 1 : -1));
+		return date.toISOString().split('T')[0];
+	}
 </script>
 
 <header>
+	{#if new Date(data.train.departureDate).toDateString() !== new Date().toDateString()}
+		{formatStrDate(data.train.departureDate).split(' ')[0]}
+	{/if}
 	<h1 class="mb-2 text-5xl font-bold">
-		<a href="/history/{data.train.trainNumber}" aria-label="Historia">
-			<code>{data.train.trainType} {data.train.trainNumber}</code>
-		</a>
+		<code>{data.train.trainType} {data.train.trainNumber}</code>
 	</h1>
 	{#if data.train.cancelled}
 		<span class="text-red-500">Peruttu</span>
@@ -77,7 +100,7 @@
 		<Card.Content class="pt-6">
 			<Tabs.Root value="timetable">
 				<Tabs.List class="flex justify-between rounded-none bg-transparent p-0">
-					<div class="bg-muted p-1 rounded-md">
+					<div class="rounded-md bg-muted p-1">
 						<Tabs.Trigger value="timetable">Aikataulu</Tabs.Trigger>
 						<Tabs.Trigger value="composition">Kokoonpano</Tabs.Trigger>
 						<Tabs.Trigger value="speed">Nopeus</Tabs.Trigger>
@@ -86,7 +109,24 @@
 							<Tabs.Trigger value="ways">Kulkutiet</Tabs.Trigger>
 						{/if}
 					</div>
-					<Button variant="secondary" href="/history/{data.train.trainNumber}">Historia</Button>
+					<div class="flex items-center gap-2">
+						<Tooltip.Root>
+							<Tooltip.Trigger>
+								<Button variant="outline" class="border-2 px-2" href="/train/{day(false)}/{data.train.trainNumber}">
+									<ChevronLeft />
+								</Button>
+							</Tooltip.Trigger>
+							<Tooltip.Content>Edellisen päivän juna</Tooltip.Content>
+						</Tooltip.Root>
+						<Tooltip.Root>
+							<Tooltip.Trigger>
+								<Button variant="outline" class="border-2 px-2" href="/train/{day(true)}/{data.train.trainNumber}">
+									<ChevronRight />
+								</Button>	
+							</Tooltip.Trigger>
+							<Tooltip.Content>Seuraavan päivän juna</Tooltip.Content>
+						</Tooltip.Root>
+					</div>
 				</Tabs.List>
 				<Tabs.Content value="timetable" class="pt-4">
 					<Timetable {data} />
