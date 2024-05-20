@@ -86,7 +86,6 @@
 							<Tabs.Trigger value="ways">Kulkutiet</Tabs.Trigger>
 						{/if}
 					</div>
-					<Button variant="secondary" href="/history/{data.train.trainNumber}">Historia</Button>
 				</Tabs.List>
 				<Tabs.Content value="timetable" class="pt-4">
 					<Timetable {data} />
