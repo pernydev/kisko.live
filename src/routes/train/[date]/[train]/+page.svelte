@@ -44,24 +44,33 @@
 			}
 		});
 
+		fetchTrainLocations();
+		fetchTrainTracking();
+		fetchRoutesets();
+	});
+	async function fetchRoutesets() {
 		const routesetsRequest = await fetch(
 			`https://rata.digitraffic.fi/api/v1/routesets/${data.train.departureDate}/${data.train.trainNumber}`
 		);
 
 		routesets = await routesetsRequest.json();
+	}
 
+	async function fetchTrainLocations() {
 		const locationRequest = await fetch(
 			`https://rata.digitraffic.fi/api/v1/train-locations/${data.train.departureDate}/${data.train.trainNumber}`
 		);
 
 		data.location = await locationRequest.json();
+	}
 
+	async function fetchTrainTracking() {
 		const traintrackingRequest = await fetch(
 			`https://rata.digitraffic.fi/api/v1/train-tracking/${data.train.departureDate}/${data.train.trainNumber}`
 		);
 
 		data.tracking = await traintrackingRequest.json();
-	});
+	}
 
 	onDestroy(() => {
 		if (!client) return;
@@ -86,10 +95,9 @@
 		<span class="text-red-500">Peruttu</span>
 	{/if}
 	{#if data.train.runningCurrently}
+		<span class="text-green-500">Juna on kulussa tällä hetkellä</span>
 		{#if data.location.length !== 0}
 			{data.location[data.location.length - 1].speed} km/h
-		{:else}
-			<span class="text-green-500">Juna on kulussa tällä hetkellä</span>
 		{/if}
 	{/if}
 </header>
@@ -112,7 +120,11 @@
 					<div class="flex items-center gap-2">
 						<Tooltip.Root>
 							<Tooltip.Trigger>
-								<Button variant="outline" class="border-2 px-2" href="/train/{day(false)}/{data.train.trainNumber}">
+								<Button
+									variant="outline"
+									class="border-2 px-2"
+									href="/train/{day(false)}/{data.train.trainNumber}"
+								>
 									<ChevronLeft />
 								</Button>
 							</Tooltip.Trigger>
@@ -120,9 +132,13 @@
 						</Tooltip.Root>
 						<Tooltip.Root>
 							<Tooltip.Trigger>
-								<Button variant="outline" class="border-2 px-2" href="/train/{day(true)}/{data.train.trainNumber}">
+								<Button
+									variant="outline"
+									class="border-2 px-2"
+									href="/train/{day(true)}/{data.train.trainNumber}"
+								>
 									<ChevronRight />
-								</Button>	
+								</Button>
 							</Tooltip.Trigger>
 							<Tooltip.Content>Seuraavan päivän juna</Tooltip.Content>
 						</Tooltip.Root>
