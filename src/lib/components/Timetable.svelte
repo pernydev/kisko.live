@@ -163,6 +163,8 @@
 										{cause.categoryCode}
 									{/if}
 								</Badge>
+							{:else}
+								Myöhästymisen syy:
 							{/if}
 							{#if cause.thirdCategoryCodeId}
 								{reasons[cause.thirdCategoryCodeId]?.name}
