@@ -5,6 +5,7 @@
 	import Search from '$lib/components/Search.svelte';
 	import { query, searchopen } from '$lib/search/searchmodal';
 	import { nerdmode } from '$lib';
+	import Button from '$lib/components/ui/button/button.svelte';
 </script>
 
 <header>
@@ -19,8 +20,48 @@
 </header>
 
 <article>
-	{#if $nerdmode}
-	{/if}
+	<section id="features">
+		<Card.Root>
+			<Card.Header>
+				<Card.Title>Kaikki verkoston junat</Card.Title>
+				<Card.Description>Katso kaikki Suomessa kulkevat junat, yhdessä listasas!</Card.Description>
+			</Card.Header>
+
+			<Card.Footer>
+				<Button href="/live" class="block w-full" variant="secondary">Avaa Live</Button>
+			</Card.Footer>
+		</Card.Root>
+		<Card.Root>
+			<Card.Header>
+				<Card.Title>Nörttimoodi</Card.Title>
+				<Card.Description>
+					Oletko rautatieharrastaja? Kokeile nörttimoodia ja näet teknistä tietoa!
+				</Card.Description>
+			</Card.Header>
+
+			<Card.Footer>
+				<Button on:click={() => ($nerdmode = !$nerdmode)} class="block w-full" variant="secondary">
+					{#if $nerdmode}
+						Dekaktivoi nörttimoodi
+					{:else}
+						Aktivoi nörttimoodi
+					{/if}
+				</Button>
+			</Card.Footer>
+		</Card.Root>
+		<Card.Root>
+			<Card.Header>
+				<Card.Title>Sivuesittelu</Card.Title>
+				<Card.Description>
+					Oletko uusi täällä? Tutustu sivustoon ja sen ominaisuuksiin!
+				</Card.Description>
+			</Card.Header>
+
+			<Card.Footer>
+				<Button href="/live" class="block w-full" variant="secondary">Avaa Live</Button>
+			</Card.Footer>
+		</Card.Root>
+	</section>
 </article>
 
 <style>
@@ -35,5 +76,12 @@
 	article {
 		max-width: 1000px;
 		margin: 0 auto;
+	}
+
+	#features {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+		text-align: center;
+		gap: 1rem;
 	}
 </style>
