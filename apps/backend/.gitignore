@@ -1,0 +1,4 @@
+tmp/
+pg_data/
+bin/
+.env
